@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Smart_Travel_Itinerary_Planner' title`, () => {
+  it(`should have the 'smart-travel-planner' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Smart_Travel_Itinerary_Planner');
+    expect(app.title).toEqual('smart-travel-planner');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Smart_Travel_Itinerary_Planner');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, smart-travel-planner');
   });
 });

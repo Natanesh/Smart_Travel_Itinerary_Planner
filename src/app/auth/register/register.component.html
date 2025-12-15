@@ -1,0 +1,21 @@
+<div class="auth-card">
+  <h1>Register</h1>
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="full-width">
+      Register
+    </button>
+
+  </form>
+</div>
