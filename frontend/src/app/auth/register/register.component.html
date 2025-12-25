@@ -1,12 +1,49 @@
 <div class="register">
   <h1>Register</h1>
   <form (ngSubmit)="register()">
-    <input type="text" placeholder="Name" />
-    <input type="email" placeholder="Email-id" />
-    <input type="password" placeholder="Password" />
-    <input type="password" placeholder="Confirm Password" />
-    <input type="number" placeholder="Phone Number" />
-    <input type="text" placeholder="State" />
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="user.name"
+      placeholder="Name"
+      required
+    />
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="user.email"
+      placeholder="Email-id"
+      required
+    />
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="user.password"
+      placeholder="Password"
+      required
+    />
+    <input
+      type="password"
+      name="confirm_password"
+      [(ngModel)]="user.password"
+      placeholder="Confirm Password"
+      readonly
+      style="color: rgb(59, 58, 58)"
+    />
+    <input
+      type="number"
+      name="phone_number"
+      [(ngModel)]="user.phone_number"
+      placeholder="Phone Number"
+      required
+    />
+    <input
+      type="text"
+      name="state"
+      [(ngModel)]="user.state"
+      placeholder="State"
+      required
+    />
     <button>Register</button>
     <p>Already have an account?<a routerLink="/login">Login</a></p>
   </form>
