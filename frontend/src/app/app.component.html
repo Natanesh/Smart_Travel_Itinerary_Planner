@@ -1,9 +1,13 @@
 <div class="main">
   <div class="nav">
     <h1><span>T</span>ravel <span style="color: lime">I</span>tinerary</h1>
-    <div class="lr">
+    <div class="lr" *ngIf="!auth.isLoggedIn">
       <a routerLink="/login">Login</a>
       <a routerLink="/register">Register</a>
+    </div>
+
+    <div class="lr" *ngIf="auth.isLoggedIn">
+      <a (click)="auth.logout()">Logout</a>
     </div>
   </div>
   <div class="content">

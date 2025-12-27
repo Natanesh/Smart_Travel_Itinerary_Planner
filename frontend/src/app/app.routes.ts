@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { IndexComponent } from './index/index.component';
+import { inject } from '@angular/core';
 import { ItineraryListComponent } from './itineraries/itinerary-list/itinerary-list.component';
-
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', component: IndexComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
-  { path: 'itineraries', component: ItineraryListComponent },
+  { path: 'home', component: ItineraryListComponent },
 ];

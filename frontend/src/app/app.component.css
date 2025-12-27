@@ -21,6 +21,9 @@
   gap: 20px;
   margin-right: 50px;
 }
+.main .nav .lr a {
+  cursor: pointer;
+}
 .main .nav a {
   color: white;
   font-family: "Syne", sans-serif;
