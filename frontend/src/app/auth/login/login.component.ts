@@ -28,7 +28,7 @@ export class LoginComponent {
         next: (resp: any) => {
           if (resp && resp.token) {
             this.auth.login();
-            this.router.navigate(['/home']);
+            this.router.navigate(['/itineraries']);
           } else {
             alert('Login failed');
           }

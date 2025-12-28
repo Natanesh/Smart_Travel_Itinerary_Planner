@@ -1,0 +1,24 @@
+h1,
+h3,
+p {
+  font-family: "Syne", sans-serif;
+}
+.list-itineraries {
+  margin-bottom: 15px;
+  border-left: 5px solid rgb(255, 208, 0);
+  background-color: white;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.list-itineraries button {
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+.list-itineraries button a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}

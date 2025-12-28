@@ -10,7 +10,6 @@ export class AuthService {
   login() {
     this.isLoggedIn = true;
   }
-
   logout() {
     this.isLoggedIn = false;
     this.http
@@ -18,5 +17,8 @@ export class AuthService {
       .subscribe((res: any) => {
         this.router.navigate(['/login']);
       });
+  }
+  viewDetails(user_id: any, id: any) {
+    this.router.navigate([`itineraries/user_${user_id}_${id}`]);
   }
 }

@@ -1,0 +1,47 @@
+h1 {
+  color: yellow;
+  font-size: 40px;
+}
+h1,
+h3,
+p,
+li,
+button {
+  font-family: "Syne", sans-serif;
+}
+.itinerary-details {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+.itinerary-details li {
+  list-style: none;
+}
+.dcbtn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dcbtn button {
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 40%;
+  height: 40px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.dcbtn button:hover {
+  background-color: yellow;
+  color: black;
+  border: 0;
+}

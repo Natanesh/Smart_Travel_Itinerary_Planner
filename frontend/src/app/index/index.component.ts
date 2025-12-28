@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
     this.currentUser().subscribe((res: any) => {
       if (res.id != undefined) {
         this.auth.login();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/itineraries']);
       }
     });
   }

@@ -1,7 +1,11 @@
-<h1>Itinerary List</h1>
+<h1 style="color: white">Itinerary List</h1>
 
-<mat-card *ngFor="let item of itineraries" style="margin-bottom: 15px">
+<div class="list-itineraries" *ngFor="let item of itineraries">
   <h3>{{ item.destination }}</h3>
-  <p>Days: {{ item.days }}</p>
+  <p>Start Date: {{ item.start_date }}</p>
+  <p>End Date: {{ item.end_date }}</p>
   <p>Budget: ₹{{ item.budget }}</p>
-</mat-card>
+  <button>
+    <a (click)="auth.viewDetails(item.user_id, item.id)">View Details</a>
+  </button>
+</div>
