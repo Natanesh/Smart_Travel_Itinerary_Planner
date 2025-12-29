@@ -55,4 +55,24 @@ export class DetailsComponent implements OnInit {
           created_date[2] + '-' + created_date[1] + '-' + created_date[0];
       });
   }
+
+  deleteItinerary() {
+    if (confirm('Are you sure you want to delete this itinerary? This action cannot be undone.')) {
+      this.http
+        .delete(`http://localhost:3000/itineraries/${this.itinerary_id}`, {
+          withCredentials: true,
+        })
+        .subscribe({
+          next: () => {
+            alert('Itinerary deleted successfully');
+            // Navigate back to itinerary list after deletion
+            this.router.navigate(['/itineraries']);
+          },
+          error: (err) => {
+            console.error('Error deleting itinerary:', err);
+            alert('Failed to delete itinerary. Please try again.');
+          },
+        });
+    }
+  }
 }
