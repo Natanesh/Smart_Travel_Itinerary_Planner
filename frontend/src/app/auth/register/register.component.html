@@ -1,0 +1,49 @@
+<div class="register">
+  <h1>Register</h1>
+  <form (ngSubmit)="register()">
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="user.name"
+      placeholder="Name"
+      required
+    />
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="user.email"
+      placeholder="Email-id"
+      required
+    />
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="user.password"
+      placeholder="Password"
+      required
+    />
+    <input
+      type="password"
+      name="confirm_password"
+      [(ngModel)]="user.confirm_password"
+      placeholder="Confirm Password"
+      required
+    />
+    <input
+      type="number"
+      name="phone_number"
+      [(ngModel)]="user.phone_number"
+      placeholder="Phone Number"
+      required
+    />
+    <input
+      type="text"
+      name="state"
+      [(ngModel)]="user.state"
+      placeholder="State"
+      required
+    />
+    <button>Register</button>
+    <p>Already have an account?<a routerLink="/login">Login</a></p>
+  </form>
+</div>

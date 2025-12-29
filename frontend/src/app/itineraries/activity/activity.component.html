@@ -1,0 +1,48 @@
+<div class="activity-container">
+  <h2>Plan Your Activities</h2>
+  <div class="days-info">
+  <strong>Total Trip Days:</strong> {{ daysCount }}
+</div>
+
+
+  <form [formGroup]="activityForm" (ngSubmit)="submitActivities()">
+
+    <div formArrayName="activities">
+
+      <div
+        class="day-card"
+        *ngFor="let activity of activities.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <h3>{{ activity.get('day')?.value }}</h3>
+
+        <label>Activity</label>
+        <input
+          type="text"
+          formControlName="activity"
+          placeholder="Enter activity for the day"
+        />
+
+        <small
+          class="error"
+          *ngIf="
+            activity.get('activity')?.invalid &&
+            activity.get('activity')?.touched
+          "
+        >
+          Activity is required
+        </small>
+      </div>
+
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="activityForm.invalid"
+      class="submit-btn"
+    >
+      Save Activities
+    </button>
+
+  </form>
+</div>
