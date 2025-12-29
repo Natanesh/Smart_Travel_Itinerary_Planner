@@ -45,6 +45,7 @@ export class DetailsComponent implements OnInit {
         }
       )
       .subscribe((res) => {
+        console.log(res);
         this.details = res;
         let start = this.details[0].start_date.split('T')[0].split('-');
         let end = this.details[0].end_date.split('T')[0].split('-');
