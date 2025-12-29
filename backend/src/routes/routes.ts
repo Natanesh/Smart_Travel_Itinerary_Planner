@@ -4,7 +4,7 @@ import { userRegistration } from "../authentication/register";
 import { userLogin, userLogout } from "../authentication/login";
 import { autoLogin } from "../authentication/autologin";
 import cookieParser from "cookie-parser";
-import { getItineraries, getItinerary } from "../services/listitineraries";
+import { getItineraries, getItinerary, deleteItinerary } from "../services/listitineraries";
 const app = express();
 
 app.use(
@@ -21,4 +21,5 @@ app.post("/login", userLogin);
 app.post("/logout", userLogout);
 app.get("/itineraries", getItineraries);
 app.get("/itineraries/:user_id/:id", getItinerary);
+app.delete("/itineraries/:id", deleteItinerary);
 export default app;

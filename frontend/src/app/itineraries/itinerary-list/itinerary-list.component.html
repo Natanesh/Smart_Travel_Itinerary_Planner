@@ -1,11 +1,19 @@
 <h1 style="color: white">Itinerary List</h1>
 
 <div class="list-itineraries" *ngFor="let item of itineraries">
-  <h3>{{ item.destination }}</h3>
+  <div class="itinerary-header">
+    <h3>{{ item.destination }}</h3>
+    <p class="itinerary-id">ID: {{ item.id }}</p>
+  </div>
   <p>Start Date: {{ item.start_date }}</p>
   <p>End Date: {{ item.end_date }}</p>
   <p>Budget: ₹{{ item.budget }}</p>
-  <button>
-    <a (click)="auth.viewDetails(item.user_id, item.id)">View Details</a>
-  </button>
+  <div class="button-group">
+    <button class="view-button">
+      <a (click)="auth.viewDetails(item.user_id, item.id)">View Details</a>
+    </button>
+    <button class="delete-button" (click)="deleteItinerary(item.id)">
+      Delete
+    </button>
+  </div>
 </div>

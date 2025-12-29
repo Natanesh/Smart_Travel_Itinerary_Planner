@@ -49,4 +49,26 @@ export class ItineraryListComponent implements OnInit {
         }
       });
   }
+
+  deleteItinerary(id: number) {
+    if (confirm('Are you sure you want to delete this itinerary?')) {
+      this.http
+        .delete(`http://localhost:3000/itineraries/${id}`, {
+          withCredentials: true,
+        })
+        .subscribe({
+          next: () => {
+            // Remove the deleted itinerary from the local array
+            this.itineraries = this.itineraries.filter(
+              (item) => item.id !== id
+            );
+            alert('Itinerary deleted successfully');
+          },
+          error: (err) => {
+            console.error('Error deleting itinerary:', err);
+            alert('Failed to delete itinerary. Please try again.');
+          },
+        });
+    }
+  }
 }
