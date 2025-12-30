@@ -1,0 +1,72 @@
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+form {
+  max-width: 700px;
+  margin: auto;
+}
+
+.day-block {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.day-block h3 {
+  margin-bottom: 15px;
+  color: #1abc9c;
+}
+
+.day-block p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.day-block strong {
+  min-width: 140px;
+  color: #34495e;
+}
+
+input[type="text"],
+input[type="time"] {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #1abc9c;
+}
+
+hr {
+  margin-top: 15px;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #1abc9c;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #16a085;
+}

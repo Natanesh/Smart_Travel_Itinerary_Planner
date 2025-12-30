@@ -1,0 +1,18 @@
+h1,
+h2,
+p,
+a {
+  color: white;
+}
+.intro {
+  /* background-color: red; */
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.intro h1 {
+  font-family: "Syne", sans-serif;
+  margin: 0;
+}

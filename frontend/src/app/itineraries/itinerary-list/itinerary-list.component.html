@@ -1,0 +1,34 @@
+<h1 style="color: white">Itinerary List</h1>
+<div class="filter-bar" style="margin-bottom: 16px; color: white">
+  <label
+    >Destination:
+    <input type="text" [(ngModel)]="destinationFilter" placeholder="e.g. Goa"
+  /></label>
+  <label style="margin-left: 12px"
+    >Max Budget:
+    <input type="number" [(ngModel)]="maxBudgetFilter" placeholder="e.g. 40000"
+  /></label>
+  <label style="margin-left: 12px"
+    >Start Date: <input type="date" [(ngModel)]="startDateFilter"
+  /></label>
+  <label style="margin-left: 12px"
+    >End Date: <input type="date" [(ngModel)]="endDateFilter"
+  /></label>
+  <button style="margin-left: 12px" (click)="applyFilters()">Apply</button>
+  <button style="margin-left: 6px" (click)="clearFilters()">Clear</button>
+</div>
+
+<div class="list-itineraries" *ngFor="let item of itineraries">
+  <div class="itinerary-header">
+    <h3>{{ item.destination }}</h3>
+    <p class="itinerary-id">ID: {{ item.id }}</p>
+  </div>
+  <p>Start Date: {{ item.start_date }}</p>
+  <p>End Date: {{ item.end_date }}</p>
+  <p>Budget: ₹{{ item.budget }}</p>
+  <div class="button-group">
+    <button class="view-button">
+      <a (click)="auth.viewDetails(item.user_id, item.id)">View Details</a>
+    </button>
+  </div>
+</div>

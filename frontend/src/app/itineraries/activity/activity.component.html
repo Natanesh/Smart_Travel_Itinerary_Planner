@@ -1,0 +1,44 @@
+<h1>Activities</h1>
+
+<form [formGroup]="activityForm" (ngSubmit)="submitActivities()">
+
+  <div formArrayName="activities">
+    <div
+      *ngFor="let activity of activities.controls; let i = index"
+      [formGroupName]="i"
+      class="day-block"
+    >
+      <h3>Day {{ i + 1 }}</h3>
+
+      <p>
+        <strong>From:</strong>
+        <input type="text" formControlName="from" />
+      </p>
+
+      <p>
+        <strong>To:</strong>
+        <input type="text" formControlName="to" />
+      </p>
+
+      <p>
+        <strong>Time:</strong>
+        <input type="time" formControlName="startTime" />
+        -
+        <input type="time" formControlName="endTime" />
+      </p>
+
+      <p>
+        <strong>Travel Duration:</strong>
+        <input
+          type="text"
+          formControlName="travelDuration"
+          placeholder="e.g. 20 mins"
+        />
+      </p>
+
+      <hr />
+    </div>
+  </div>
+
+  <button type="submit">Save Activities</button>
+</form>

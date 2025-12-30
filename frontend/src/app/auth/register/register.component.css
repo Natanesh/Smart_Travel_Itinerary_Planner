@@ -1,0 +1,57 @@
+.register {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  /* background-color: red; */
+  padding: 20px;
+  gap: 20px;
+  font-family: "Syne", sans-serif;
+}
+.register h1 {
+  color: white;
+  margin: 0;
+  font-family: "Syne", sans-serif;
+}
+
+.register input {
+  width: 400px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  padding-left: 10px;
+  outline: 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+.register form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.register form p {
+  color: white;
+}
+
+.register form button {
+  height: 40px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Syne", sans-serif;
+  background-color: grey;
+}
+
+.register form button:hover {
+  background-color: yellow;
+  color: black;
+}
+.register form p a {
+  padding-left: 5px;
+  color: yellow;
+  font-family: "Syne", sans-serif;
+  text-decoration: none;
+}
