@@ -1,14 +1,35 @@
 <div class="main">
   <div class="nav">
-    <h1><span>T</span>ravel <span style="color: lime">I</span>tinerary</h1>
-    <div class="lr" *ngIf="!auth.isLoggedIn">
-      <a routerLink="/login">Login</a>
-      <a routerLink="/register">Register</a>
+    <div class="left">
+      <h1>Tp</h1>
+      <ul *ngIf="!auth.isLoggedIn">
+        <li
+          style="
+            background-color: rgb(21, 21, 21);
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            border-radius: 5px;
+            border: 1px solid rgb(31, 31, 31);
+          "
+        >
+          Home
+        </li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
     </div>
+    <div class="right">
+      <div class="lr" *ngIf="!auth.isLoggedIn">
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register">Register</a>
+      </div>
 
-    <div class="lr" *ngIf="auth.isLoggedIn">
-      <a routerLink="/itineraries">Home</a>
-      <a (click)="auth.logout()">Logout</a>
+      <div class="lr" *ngIf="auth.isLoggedIn">
+        <a routerLink="/itineraries">Home</a>
+        <a (click)="auth.logout()">Logout</a>
+      </div>
     </div>
   </div>
   <div class="content">
