@@ -1,8 +1,11 @@
 h1,
 h2,
 p,
-a {
+a,
+button,
+li {
   color: white;
+  font-family: "Syne", sans-serif;
 }
 .intro {
   /* background-color: red; */
@@ -10,9 +13,134 @@ a {
   margin-right: 50px;
   margin-top: 50px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
-.intro h1 {
+.intro div h1 {
   font-family: "Syne", sans-serif;
   margin: 0;
+  font-size: 50px;
+}
+.intro .ind_home h1 {
+  font-size: 70px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.intro .ind_home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  /* text-align: center; */
+  width: 85%;
+  border-radius: 10px;
+  background: rgba(128, 128, 128, 0.1);
+}
+.intro .ind_home p {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.intro .ind_home button {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  border: 0;
+  outline: 0;
+  height: 40px;
+  width: 150px;
+  border-radius: 5px;
+}
+.about {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  padding: 20px;
+  /* background-color: red; */
+}
+.about h1 {
+  margin: 0;
+}
+.about .lra {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.about .lra .left_about {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 20px;
+}
+.about .lra .left_about img {
+  height: 400px;
+  width: 400px;
+}
+.about .lra .right_about {
+  flex: 1;
+  /* max-width: 600px; */
+  padding: 20px;
+}
+
+.about .lra .right_about ul {
+  margin-left: 20px;
+  /* width: 80%; */
+}
+
+.about .lra .right_about ul li {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.team {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  padding: 20px;
+}
+.team h1 {
+  margin: 0;
+}
+.team .card {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+.team .card_cont {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team .card_cont h1 {
+  font-size: 40px;
+}
+.team .card_cont img {
+  height: 250px;
+  width: 250px;
+  border-radius: 20px;
+}
+.team .card_cont a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  background-color: transparent;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+.team .card_cont a:hover {
+  background-color: white;
+  color: black;
 }

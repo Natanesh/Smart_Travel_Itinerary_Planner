@@ -2,7 +2,9 @@
   width: 100%;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
+  position: sticky;
+  top: 0;
+  background-color: #000000;
 }
 .main .nav .left h1 {
   margin: 0;
@@ -62,6 +64,22 @@
 .main .nav a:hover {
   background-color: rgba(128, 128, 128, 0.1);
 }
+
+.main .nav .left ul a {
+  cursor: pointer;
+  color: white;
+  font-family: "Syne", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 700px) {
   .main .nav {
     justify-content: center;

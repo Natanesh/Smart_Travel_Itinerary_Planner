@@ -1,23 +1,12 @@
 <div class="main">
   <div class="nav">
     <div class="left">
-      <h1>Tp</h1>
+      <h1>Stip</h1>
       <ul *ngIf="!auth.isLoggedIn">
-        <li
-          style="
-            background-color: rgb(21, 21, 21);
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            border-radius: 5px;
-            border: 1px solid rgb(31, 31, 31);
-          "
-        >
-          Home
-        </li>
-        <li>About</li>
-        <li>Contact</li>
+        <a href="#home"><li>Home</li></a>
+        <a href="#about"><li>About</li></a>
+        <a href="#team"><li>Our Team</li></a>
+        <a href="#"><li>Contact</li></a>
       </ul>
     </div>
     <div class="right">
