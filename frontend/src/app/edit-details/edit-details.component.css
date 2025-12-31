@@ -1,0 +1,15 @@
+.edit {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.edit h1 {
+  margin: 0;
+}
+.edit form {
+  display: flex;
+  flex-direction: column;
+}

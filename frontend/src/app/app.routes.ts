@@ -4,6 +4,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { IndexComponent } from './index/index.component';
 import { ItineraryListComponent } from './itineraries/itinerary-list/itinerary-list.component';
 import { DetailsComponent } from './details/details.component';
+import { EditDetailsComponent } from './edit-details/edit-details.component';
 export const routes: Routes = [
   { path: '', component: IndexComponent },
 
@@ -12,4 +13,5 @@ export const routes: Routes = [
 
   { path: 'itineraries', component: ItineraryListComponent },
   { path: 'itineraries/:id', component: DetailsComponent },
+  { path: 'edit', component: EditDetailsComponent },
 ];

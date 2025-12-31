@@ -5,6 +5,7 @@ import { IndexComponent } from '../index/index.component';
 import { ViewDetails } from './details-model';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { EditDetailsComponent } from '../edit-details/edit-details.component';
 @Component({
   selector: 'app-details',
   standalone: true,
@@ -20,6 +21,7 @@ export class DetailsComponent implements OnInit {
   auth = inject(AuthService);
   index = inject(IndexComponent);
   http = inject(HttpClient);
+  edit = inject(EditDetailsComponent);
   details: ViewDetails[] = [];
   ngOnInit(): void {
     let urlData = this.router.url.split('itineraries/')[1];
@@ -58,7 +60,11 @@ export class DetailsComponent implements OnInit {
   }
 
   deleteItinerary() {
-    if (confirm('Are you sure you want to delete this itinerary? This action cannot be undone.')) {
+    if (
+      confirm(
+        'Are you sure you want to delete this itinerary? This action cannot be undone.'
+      )
+    ) {
       this.http
         .delete(`http://localhost:3000/itineraries/${this.itinerary_id}`, {
           withCredentials: true,
@@ -75,5 +81,9 @@ export class DetailsComponent implements OnInit {
           },
         });
     }
+  }
+  editItinerary() {
+    this.edit.updateDetails(this.details);
+    this.router.navigate(['/edit']);
   }
 }

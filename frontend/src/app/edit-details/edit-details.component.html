@@ -1,0 +1,23 @@
+<div class="edit">
+  <h1>Edit Itinerary</h1>
+  <form [formGroup]="editData" (ngSubmit)="submit()">
+    <h1>Details:</h1>
+    <div class="input">
+      <label style="color: white">Place: {{ editData.value.place }} </label>
+      <input type="text" formControlName="place" />
+    </div>
+    <div class="input">
+      <label style="color: white">Start Date: </label>
+      <input type="date" formControlName="st_date" />
+    </div>
+    <div class="input">
+      <label style="color: white">End Date: </label>
+      <input type="date" formControlName="end_date" />
+    </div>
+    <div class="input">
+      <label style="color: white">Budget: </label>
+      <input type="number" formControlName="budget" />
+    </div>
+    <button type="submit">Click</button>
+  </form>
+</div>

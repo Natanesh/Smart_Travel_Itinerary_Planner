@@ -35,6 +35,6 @@
   </div>
 </div>
 <div *ngIf="current_user_id == user_id" class="dcbtn">
-  <button>Edit</button>
+  <button (click)="editItinerary()">Edit</button>
   <button (click)="deleteItinerary()">Delete</button>
 </div>
