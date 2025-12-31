@@ -4,7 +4,12 @@ import { userRegistration } from "../authentication/register";
 import { userLogin, userLogout } from "../authentication/login";
 import { autoLogin } from "../authentication/autologin";
 import cookieParser from "cookie-parser";
-import { getItineraries, getItinerary, deleteItinerary } from "../services/listitineraries";
+import {
+  getItineraries,
+  getItinerary,
+  deleteItinerary,
+} from "../services/listitineraries";
+import { createItinerary } from "../services/createitinerary";
 const app = express();
 
 app.use(
@@ -19,6 +24,7 @@ app.get("/", autoLogin);
 app.post("/register", userRegistration);
 app.post("/login", userLogin);
 app.post("/logout", userLogout);
+app.post("/create", createItinerary);
 app.get("/itineraries", getItineraries);
 app.get("/itineraries/:user_id/:id", getItinerary);
 app.delete("/itineraries/:id", deleteItinerary);

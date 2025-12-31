@@ -1,53 +1,52 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators
-} from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-itinerary-create',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './itinerary-create.component.html',
-  styleUrls: ['./itinerary-create.component.css']
+  styleUrls: ['./itinerary-create.component.css'],
 })
 export class CreateItineraryComponent {
-  itineraryForm: FormGroup;
+  itinerary = {
+    title: '',
+    destination: '',
+    start_date: '',
+    end_date: '',
+    budget: 0,
+  };
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router
-  ) {
-    this.itineraryForm = this.fb.group({
-      title: ['', Validators.required],
-      destination: ['', Validators.required],
-      startDate: ['', Validators.required],
-      endDate: ['', Validators.required]
-    });
-  }
+  constructor(private router: Router) {}
 
-  goToActivities(): void {
-    if (this.itineraryForm.valid) {
-      const { startDate, endDate } = this.itineraryForm.value;
-
-      // calculate number of days
-      const start = new Date(startDate);
-      const end = new Date(endDate);
-      const days =
-        Math.ceil(
-          (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)
-        ) + 1;
-
-      // pass days to activity page
-      this.router.navigate(['/activities'], {
-        state: { days }
-      });
-    } else {
-      this.itineraryForm.markAllAsTouched();
+  goToActivities() {
+    if (
+      !this.itinerary.destination.trim() ||
+      !this.itinerary.start_date ||
+      !this.itinerary.end_date ||
+      !this.itinerary.budget
+    ) {
+      alert('Please fill all the fields before continuing.');
+      return;
     }
+
+    const startDate = new Date(this.itinerary.start_date);
+    const endDate = new Date(this.itinerary.end_date);
+
+    if (endDate < startDate) {
+      alert('⚠️ End date cannot be earlier than start date.');
+      return;
+    }
+
+    if (isNaN(Number(this.itinerary.budget))) {
+      alert('⚠️ Budget must be a valid number.');
+      return;
+    }
+
+    this.router.navigate(['/activities'], {
+      state: { itinerary: this.itinerary },
+    });
   }
 }

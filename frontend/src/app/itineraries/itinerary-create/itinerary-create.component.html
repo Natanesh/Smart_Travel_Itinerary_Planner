@@ -1,19 +1,19 @@
-
 <div class="form-container">
   <h2>Create Itinerary</h2>
 
-  <label>Destination</label>
-  <input type="text" [(ngModel)]="itinerary.destination" />
+  <form>
+    <label>Destination</label>
+    <input type="text" name="destination" [(ngModel)]="itinerary.destination" />
 
-  <label>Start Date</label>
-  <input type="date" [(ngModel)]="itinerary.start_date" />
+    <label>Start Date</label>
+    <input type="date" name="start_date" [(ngModel)]="itinerary.start_date" />
 
-  <label>End Date</label>
-  <input type="date" [(ngModel)]="itinerary.end_date" />
+    <label>End Date</label>
+    <input type="date" name="end_date" [(ngModel)]="itinerary.end_date" />
 
-  <label>Budget (₹)</label>
-  <input type="text" [(ngModel)]="itinerary.budget" />
+    <label>Budget (₹)</label>
+    <input type="text" name="budget" [(ngModel)]="itinerary.budget" />
 
-  <button (click)="goToActivities()">Next</button>
-
+    <button type="button" (click)="goToActivities()">Next</button>
+  </form>
 </div>

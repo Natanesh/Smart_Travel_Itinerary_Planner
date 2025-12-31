@@ -1,35 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormArray,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-activity',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './activity.component.html',
-  styleUrls: ['./activity.component.css']
+  styleUrls: ['./activity.component.css'],
 })
 export class ActivityComponent implements OnInit {
-
   activityForm!: FormGroup;
   daysCount = 0;
   itinerary: any;
   alertShown = false;
-
-  constructor(
-    private fb: FormBuilder,
-    private router: Router
-  ) {}
+  http = inject(HttpClient);
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-
     // 🔹 Get itinerary from navigation state
     this.itinerary = history.state.itinerary;
 
@@ -55,8 +51,7 @@ export class ActivityComponent implements OnInit {
 
     return (
       Math.ceil(
-        (endDate.getTime() - startDate.getTime()) /
-        (1000 * 60 * 60 * 24)
+        (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
       ) + 1
     );
   }
@@ -64,7 +59,7 @@ export class ActivityComponent implements OnInit {
   // 🔹 Build dynamic form based on days
   buildForm(): void {
     this.activityForm = this.fb.group({
-      activities: this.fb.array([])
+      activities: this.fb.array([]),
     });
 
     for (let i = 1; i <= this.daysCount; i++) {
@@ -80,7 +75,7 @@ export class ActivityComponent implements OnInit {
       to: ['', Validators.required],
       startTime: ['', Validators.required],
       endTime: ['', Validators.required],
-      travelDuration: ['', Validators.required]
+      travelDuration: ['', Validators.required],
     });
   }
 
@@ -91,7 +86,6 @@ export class ActivityComponent implements OnInit {
 
   // 🔹 Submit activities
   submitActivities(): void {
-
     if (this.activityForm.invalid) {
       this.activityForm.markAllAsTouched();
 
@@ -101,7 +95,18 @@ export class ActivityComponent implements OnInit {
       }
       return;
     }
-
+    this.http
+      .post(
+        'http://localhost:3000/create',
+        {
+          itinerary: this.itinerary,
+          activities: this.activityForm.value.activities,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .subscribe();
     console.log('Activities Data:', this.activityForm.value);
 
     alert('✅ Activities added successfully');
