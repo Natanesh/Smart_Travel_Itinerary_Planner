@@ -21,7 +21,6 @@ export class DetailsComponent implements OnInit {
   auth = inject(AuthService);
   index = inject(IndexComponent);
   http = inject(HttpClient);
-  edit = inject(EditDetailsComponent);
   details: ViewDetails[] = [];
   ngOnInit(): void {
     let urlData = this.router.url.split('itineraries/')[1];
@@ -47,7 +46,6 @@ export class DetailsComponent implements OnInit {
         }
       )
       .subscribe((res) => {
-        console.log(res);
         this.details = res;
         let start = this.details[0].start_date.split('T')[0].split('-');
         let end = this.details[0].end_date.split('T')[0].split('-');
@@ -83,7 +81,6 @@ export class DetailsComponent implements OnInit {
     }
   }
   editItinerary() {
-    this.edit.updateDetails(this.details);
-    this.router.navigate(['/edit']);
+    this.auth.editDetails(this.details[0]);
   }
 }

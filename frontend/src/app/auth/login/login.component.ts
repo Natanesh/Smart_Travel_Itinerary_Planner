@@ -3,6 +3,7 @@ import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
+import { IndexComponent } from '../../index/index.component';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,18 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  ngOnInit(): void {
+    this.index.currentUser().subscribe((res: any) => {
+      if (res.id == undefined) {
+        this.auth.logout();
+      } else {
+        this.auth.login();
+        this.router.navigate(['/itineraries']);
+      }
+    });
+  }
+  index = inject(IndexComponent);
   http = inject(HttpClient);
   router = inject(Router);
   user = { email: '', password: '' };

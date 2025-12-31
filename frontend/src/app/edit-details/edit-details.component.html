@@ -1,23 +1,42 @@
-<div class="edit">
+<div class="edit" *ngIf="editData">
   <h1>Edit Itinerary</h1>
+
   <form [formGroup]="editData" (ngSubmit)="submit()">
-    <h1>Details:</h1>
-    <div class="input">
-      <label style="color: white">Place: {{ editData.value.place }} </label>
-      <input type="text" formControlName="place" />
+    <h3>Details</h3>
+
+    <input type="text" formControlName="place" placeholder="Destination" />
+    <input type="date" formControlName="st_date" />
+    <input type="date" formControlName="end_date" />
+    <input type="number" formControlName="budget" placeholder="Budget" />
+
+    <h3>Activities</h3>
+
+    <div formArrayName="activities">
+      <div
+        *ngFor="let act of activities.controls; let i = index"
+        [formGroupName]="i"
+        class="activity-box"
+      >
+        <h4>Day {{ i + 1 }}</h4>
+
+        <input type="text" formControlName="from" placeholder="From" />
+        <input type="text" formControlName="to" placeholder="To" />
+        <input
+          type="time"
+          formControlName="visit_start"
+          placeholder="Start time"
+        />
+
+        <input type="time" formControlName="visit_end" placeholder="End time" />
+
+        <input
+          type="text"
+          formControlName="travel_duration"
+          placeholder="Travel duration"
+        />
+      </div>
     </div>
-    <div class="input">
-      <label style="color: white">Start Date: </label>
-      <input type="date" formControlName="st_date" />
-    </div>
-    <div class="input">
-      <label style="color: white">End Date: </label>
-      <input type="date" formControlName="end_date" />
-    </div>
-    <div class="input">
-      <label style="color: white">Budget: </label>
-      <input type="number" formControlName="budget" />
-    </div>
-    <button type="submit">Click</button>
+
+    <button type="submit">Update Itinerary</button>
   </form>
 </div>

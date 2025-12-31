@@ -17,6 +17,7 @@
 
       <div class="lr" *ngIf="auth.isLoggedIn">
         <a routerLink="/itineraries">Home</a>
+        <a routerLink="/itineraries-create">Create</a>
         <a (click)="auth.logout()">Logout</a>
       </div>
     </div>

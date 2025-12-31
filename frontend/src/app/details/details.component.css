@@ -1,47 +1,167 @@
 h1 {
-  color: yellow;
   font-size: 40px;
+  margin-bottom: 30px;
 }
+
 h1,
 h3,
+h4,
 p,
 li,
 button {
   font-family: "Syne", sans-serif;
+  color: white;
 }
-.itinerary-details {
+
+.details-wrapper {
   display: flex;
   flex-direction: column;
-  width: 700px;
-  padding-left: 20px;
+  gap: 25px;
+  width: 720px;
+  margin: auto;
+}
+
+.cont {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+}
+.cont .right img {
+  height: 200px;
+  width: 200px;
+}
+.card {
+  background-color: rgba(128, 128, 128, 0.1);
   border-radius: 10px;
+  padding: 20px;
 }
-.itinerary-details li {
+.card h3 {
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+.day-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.day-box h4 {
+  margin-bottom: 8px;
+}
+
+.card ul {
+  padding-left: 0;
+}
+
+.card li {
   list-style: none;
+  font-size: 14px;
 }
+
 .dcbtn {
   display: flex;
-  width: 100%;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
+  margin-top: 30px;
+  padding-bottom: 20px;
 }
 
 .dcbtn button {
   cursor: pointer;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 40%;
+  width: 200px;
   height: 40px;
   background-color: transparent;
   color: white;
   border: 1px solid white;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: bold;
+  transition: all 0.3s ease;
 }
+
 .dcbtn button:hover {
-  background-color: yellow;
+  background-color: white;
   color: black;
-  border: 0;
+  border: 1px solid white;
+}
+
+@media (max-width: 900px) {
+  .details-wrapper {
+    width: 95%;
+  }
+
+  .cont {
+    gap: 20px;
+  }
+
+  .cont .right img {
+    height: 160px;
+    width: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .details-wrapper {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .cont {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cont .left p {
+    font-size: 14px;
+  }
+
+  .cont .right img {
+    height: 140px;
+    width: 140px;
+    margin-bottom: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .card h3 {
+    text-align: center;
+  }
+
+  .day-box {
+    font-size: 14px;
+  }
+
+  .dcbtn {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .dcbtn button {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  .cont .right img {
+    height: 120px;
+    width: 120px;
+  }
+
+  .day-box h4 {
+    font-size: 15px;
+  }
 }

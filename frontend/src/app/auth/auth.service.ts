@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { ViewDetails } from '../details/details-model';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   http = inject(HttpClient);
@@ -20,5 +21,12 @@ export class AuthService {
   }
   viewDetails(user_id: any, id: any) {
     this.router.navigate([`itineraries/user_${user_id}_${id}`]);
+  }
+  editDetails(detail: ViewDetails) {
+    this.router.navigate(['/edit'], {
+      state: {
+        itinerary: detail,
+      },
+    });
   }
 }

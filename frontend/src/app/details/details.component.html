@@ -1,39 +1,45 @@
-<h1>Itinerary Id: {{ itinerary_id }}</h1>
-
-<div
-  *ngIf="details[0]"
-  style="background-color: white"
-  class="itinerary-details"
->
-  <div class="det">
-    <h3>Details</h3>
-    <p>Place: {{ details[0].destination }}</p>
-    <p>Start Date: {{ details[0].start_date }}</p>
-    <p>End Date: {{ details[0].end_date }}</p>
-    <p>Budget: ₹{{ details[0].budget }}</p>
-    <p>Created at: {{ details[0].created_at }}</p>
-  </div>
-  <div class="act">
-    <h3>Activities</h3>
-    <div *ngFor="let d of details[0].activities.days">
-      <b>Day {{ d.day }}</b>
-
-      <ul *ngIf="d.activities as site">
-        <li>From: {{ site[0] }}</li>
-        <li>To: {{ site[1] }}</li>
-      </ul>
-
-      <p>Time: {{ d.visit_time }}</p>
-      <p>Travel Duration: {{ d.travel_duration }}</p>
+<div *ngIf="details[0]" class="details-wrapper">
+  <div class="card">
+    <h3>Trip Details</h3>
+    <div class="cont">
+      <div class="left">
+        <p><b>Place:</b> {{ details[0].destination }}</p>
+        <p><b>Start Date:</b> {{ details[0].start_date }}</p>
+        <p><b>End Date:</b> {{ details[0].end_date }}</p>
+        <p><b>Budget:</b> ₹{{ details[0].budget }}</p>
+        <p><b>Created At:</b> {{ details[0].created_at }}</p>
+      </div>
+      <div class="right">
+        <img src="assets/details.png" />
+      </div>
     </div>
   </div>
-  <div class="usercontact">
-    <h3>Contact User</h3>
-    <p><b>Name : </b>{{ details[0].name }}</p>
-    <p><b>Phone Number : </b>{{ details[0].contact_info.phone_number }}</p>
-    <p><b>Location : </b>{{ details[0].contact_info.state }}</p>
+
+  <div class="card">
+    <h3>Activities</h3>
+
+    <div class="day-box" *ngFor="let d of details[0].activities.days">
+      <h4>Day {{ d.day }}</h4>
+
+      <ul *ngIf="d.activities as site">
+        <li><b>From:</b> {{ site[0] }}</li>
+        <li><b>To:</b> {{ site[1] }}</li>
+      </ul>
+
+      <p><b>Time:</b> {{ d.visit_time }}</p>
+      <p><b>Travel:</b> {{ d.travel_duration }}</p>
+    </div>
+  </div>
+
+  <!-- User Contact Card -->
+  <div class="card">
+    <h3>User Contact</h3>
+    <p><b>Name:</b> {{ details[0].name }}</p>
+    <p><b>Phone:</b> {{ details[0].contact_info.phone_number }}</p>
+    <p><b>Location:</b> {{ details[0].contact_info.state }}</p>
   </div>
 </div>
+
 <div *ngIf="current_user_id == user_id" class="dcbtn">
   <button (click)="editItinerary()">Edit</button>
   <button (click)="deleteItinerary()">Delete</button>

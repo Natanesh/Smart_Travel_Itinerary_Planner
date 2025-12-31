@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
+import { IndexComponent } from '../../index/index.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,16 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.index.currentUser().subscribe((res: any) => {
+      if (res.id != undefined) {
+        this.auth.login();
+        this.router.navigate(['/itineraries']);
+      }
+    });
+  }
+  index = inject(IndexComponent);
+  auth = inject(AuthService);
   http = inject(HttpClient);
   router = inject(Router);
   user = {

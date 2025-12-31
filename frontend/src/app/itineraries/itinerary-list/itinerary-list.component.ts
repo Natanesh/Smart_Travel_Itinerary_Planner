@@ -16,6 +16,24 @@ import { Itinerary } from './itinerary-model';
   styleUrl: './itinerary-list.component.css',
 })
 export class ItineraryListComponent implements OnInit {
+  auth = inject(AuthService);
+  index = inject(IndexComponent);
+  router = inject(Router);
+  http = inject(HttpClient);
+
+  itineraries: Itinerary[] = [];
+  originalItineraries: any[] = [];
+
+  destinationFilter: string = '';
+  maxBudgetFilter: number | null = null;
+  startDateFilter: string = '';
+  endDateFilter: string = '';
+
+  user_id: any = undefined;
+
+  // 🔹 NEW: tab control
+  activeTab: 'current' | 'past' = 'current';
+
   ngOnInit(): void {
     this.index.currentUser().subscribe((res: any) => {
       if (res.id == undefined) {
@@ -28,18 +46,7 @@ export class ItineraryListComponent implements OnInit {
       }
     });
   }
-  auth = inject(AuthService);
-  index = inject(IndexComponent);
-  router = inject(Router);
-  http = inject(HttpClient);
-  itineraries: Itinerary[] = [];
-  originalItineraries: any[] = [];
 
-  destinationFilter: string = '';
-  maxBudgetFilter: number | null = null;
-  startDateFilter: string = '';
-  endDateFilter: string = '';
-  user_id: any = undefined;
   listItineraries() {
     this.http
       .get<Itinerary[]>('http://localhost:3000/itineraries', {
@@ -54,6 +61,7 @@ export class ItineraryListComponent implements OnInit {
   applyFilters() {
     let filtered = this.originalItineraries.slice();
 
+    // 🔹 Destination filter
     if (this.destinationFilter && this.destinationFilter.trim() !== '') {
       const q = this.destinationFilter.trim().toLowerCase();
       filtered = filtered.filter((it: any) =>
@@ -61,6 +69,7 @@ export class ItineraryListComponent implements OnInit {
       );
     }
 
+    // 🔹 Budget filter
     if (this.maxBudgetFilter !== null && this.maxBudgetFilter !== undefined) {
       filtered = filtered.filter((it: any) => {
         const b = Number(it.budget || 0);
@@ -68,6 +77,7 @@ export class ItineraryListComponent implements OnInit {
       });
     }
 
+    // 🔹 Date filters
     if (this.startDateFilter) {
       const s = new Date(this.startDateFilter);
       filtered = filtered.filter((it: any) => new Date(it.start_date) >= s);
@@ -78,6 +88,16 @@ export class ItineraryListComponent implements OnInit {
       filtered = filtered.filter((it: any) => new Date(it.end_date) <= e);
     }
 
+    // 🔹 NEW: Current / Past filter
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    filtered =
+      this.activeTab === 'current'
+        ? filtered.filter((it: any) => new Date(it.end_date) >= today)
+        : filtered.filter((it: any) => new Date(it.end_date) < today);
+
+    // 🔹 Format dates (existing logic untouched)
     this.itineraries = filtered.map((it: any) => {
       const copy = { ...it } as any;
       try {
@@ -93,6 +113,12 @@ export class ItineraryListComponent implements OnInit {
       } catch (err) {}
       return copy;
     });
+  }
+
+  // 🔹 NEW: tab switch
+  setTab(tab: 'current' | 'past') {
+    this.activeTab = tab;
+    this.applyFilters();
   }
 
   clearFilters() {

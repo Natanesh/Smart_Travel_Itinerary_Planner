@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: white;
+  font-family: "Syne", sans-serif;
+}
+
+form {
+  max-width: 720px;
+  margin: auto;
+  padding: 25px;
+  background-color: rgba(128, 128, 128, 0.1);
+  border-radius: 12px;
+  font-family: "Syne", sans-serif;
+}
+form input {
+  font-family: "Syne", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+.day-block {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.day-block h3 {
+  margin-bottom: 15px;
+  color: white;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: white;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="time"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color-scheme: dark;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+hr {
+  margin-top: 15px;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+button {
+  display: block;
+  width: 200px;
+  padding: 12px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 30px auto 0;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+@media (max-width: 900px) {
+  form {
+    width: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  form {
+    width: 100%;
+    padding: 16px;
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  input[type="text"],
+  input[type="time"] {
+    font-size: 13px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 24px;
+  }
+}

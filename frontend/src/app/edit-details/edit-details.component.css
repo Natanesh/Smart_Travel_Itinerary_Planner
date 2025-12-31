@@ -1,15 +1,126 @@
 .edit {
-  background-color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
+  margin-top: 40px;
+  padding-bottom: 30px;
 }
+
 .edit h1 {
-  margin: 0;
+  font-size: 38px;
+  color: white;
+  font-family: "Syne", sans-serif;
+  margin-bottom: 10px;
 }
+
 .edit form {
+  background-color: rgba(128, 128, 128, 0.1);
+  padding: 25px;
+  border-radius: 12px;
+  width: 720px;
   display: flex;
   flex-direction: column;
+  gap: 15px;
+}
+
+.edit h3 {
+  font-family: "Syne", sans-serif;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 6px;
+  margin-top: 10px;
+}
+
+.edit input {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 0;
+  outline: 0;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Syne", sans-serif;
+  background-color: rgba(255, 255, 255, 0.08);
+  color-scheme: dark;
+}
+.edit input::placeholder {
+  color: #ccc;
+}
+
+.activity-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.activity-box h4 {
+  color: white;
+  font-family: "Syne", sans-serif;
+  margin-bottom: 5px;
+}
+
+.edit button[type="submit"] {
+  margin-top: 20px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-family: "Syne", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.edit button[type="submit"]:hover {
+  background-color: white;
+  color: black;
+}
+
+@media (max-width: 900px) {
+  .edit form {
+    width: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  .edit h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .edit form {
+    padding: 18px;
+  }
+
+  .edit input {
+    font-size: 13px;
+  }
+
+  .activity-box {
+    padding: 12px;
+  }
+
+  .edit button[type="submit"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .edit h1 {
+    font-size: 26px;
+  }
+
+  .activity-box h4 {
+    font-size: 14px;
+  }
 }
