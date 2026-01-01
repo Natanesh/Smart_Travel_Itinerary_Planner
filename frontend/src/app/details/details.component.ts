@@ -70,7 +70,6 @@ export class DetailsComponent implements OnInit {
         .subscribe({
           next: () => {
             alert('Itinerary deleted successfully');
-            // Navigate back to itinerary list after deletion
             this.router.navigate(['/itineraries']);
           },
           error: (err) => {
