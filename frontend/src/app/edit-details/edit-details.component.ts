@@ -114,8 +114,8 @@ export class EditDetailsComponent implements OnInit {
           day: [d.day],
           from: [d.activities?.[0] ?? ''],
           to: [d.activities?.[1] ?? ''],
-          visit_start: [this.parseAmPmTo24(start)], // ✅ KEY LINE
-          visit_end: [this.parseAmPmTo24(end)], // ✅ KEY LINE
+          visit_start: [this.parseAmPmTo24(start)],
+          visit_end: [this.parseAmPmTo24(end)],
           travel_duration: [d.travel_duration ?? ''],
         })
       );
